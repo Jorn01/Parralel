@@ -3,6 +3,7 @@ package nl.saxion.paracomp.assignment1;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Utils {
 
@@ -51,7 +52,8 @@ public class Utils {
    *
    * @param numbers1 First sorted array with integers
    * @param numbers2 Second sorted array with integers
-   * @return A new sorted array that holds the integers of the first and second array
+   * @return A new sorted array that holds the integers of the first and second
+   *         array
    */
   public static int[] merge(int[] numbers1, int[] numbers2) {
     // run with assertions enabled to perform these checks
@@ -61,7 +63,8 @@ public class Utils {
 
     int index1 = 0, index2 = 0, indexResult = 0;
 
-    // copy the smallest number from first or second array, until one of them is exhausted
+    // copy the smallest number from first or second array, until one of them is
+    // exhausted
     while (index1 < numbers1.length && index2 < numbers2.length) {
       if (numbers1[index1] <= numbers2[index2])
         result[indexResult++] = numbers1[index1++];
@@ -83,8 +86,9 @@ public class Utils {
   }
 
   /**
-   * Measure execution duration of some code.
-   * The code can also be specified with a lambda expression.
+   * Measure execution duration of some code. The code can also be specified with
+   * a lambda expression.
+   * 
    * @param code A runnable object
    * @return The execution duration
    */
@@ -94,5 +98,14 @@ public class Utils {
     return Duration.between(start, Instant.now());
   }
 
+  public int getLength() {
+    Scanner sc = new Scanner(System.in);
+    while (!sc.hasNextInt()) {
+      System.out.println("Please enter a valid number: ");
+      sc.next();
+    }
+    int length = sc.nextInt();
+    sc.close();
+    return length;
+  }
 }
-
