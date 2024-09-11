@@ -3,9 +3,9 @@ import java.util.Scanner;
 import nl.saxion.paracomp.assignment1.SortAlgorithmFactory;
 import nl.saxion.paracomp.assignment1.sorters.BaseSorter;
 
-public class main {
+public class temp_Main {
     public static void main(String[] args) {
-        new main().program();
+        new temp_Main().program();
     }
 
     private void program() {

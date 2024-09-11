@@ -2,7 +2,6 @@ package nl.saxion.paracomp.assignment1;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 

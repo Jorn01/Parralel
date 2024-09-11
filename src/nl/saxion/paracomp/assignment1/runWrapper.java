@@ -1,10 +1,7 @@
 package nl.saxion.paracomp.assignment1;
 
 import java.time.Duration;
-import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Arrays;
-
 import nl.saxion.paracomp.assignment1.sorters.BaseSorter;
 
 public class runWrapper {

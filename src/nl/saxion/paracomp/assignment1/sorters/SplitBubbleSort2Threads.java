@@ -1,7 +1,5 @@
 package nl.saxion.paracomp.assignment1.sorters;
 
-import java.util.Arrays;
-
 import nl.saxion.paracomp.assignment1.Utils;
 
 public class SplitBubbleSort2Threads extends BaseSorter {
