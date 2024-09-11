@@ -1,17 +1,16 @@
-package nl.saxion.paracomp.assignment1;
+package nl.saxion.paracomp.assignment1.sorters;
 
 import java.util.concurrent.RecursiveTask;
+
+import nl.saxion.paracomp.assignment1.Utils;
 
 public class RecursiveTaskTreeSplit extends RecursiveTask<int[]> {
     private int threshold = 1000; // Example threshold value
     private final int[] numbers;
 
-    private BaseSorter baseSorter;
-
-    public RecursiveTaskTreeSplit(int[] numbers, int threshold, BaseSorter baseSorter) {
+    public RecursiveTaskTreeSplit(int[] numbers, int threshold) {
         this.numbers = numbers;
         this.threshold = threshold;
-        this.baseSorter = baseSorter;
     }
 
     @Override
@@ -32,8 +31,8 @@ public class RecursiveTaskTreeSplit extends RecursiveTask<int[]> {
         System.arraycopy(numbers, mid, right, 0, n - mid);
 
         // Create subtasks
-        RecursiveTaskTreeSplit leftTask = new RecursiveTaskTreeSplit(left, threshold, baseSorter);
-        RecursiveTaskTreeSplit rightTask = new RecursiveTaskTreeSplit(right, threshold, baseSorter);
+        RecursiveTaskTreeSplit leftTask = new RecursiveTaskTreeSplit(left, threshold);
+        RecursiveTaskTreeSplit rightTask = new RecursiveTaskTreeSplit(right, threshold);
 
         // Fork the subtasks
         leftTask.fork();

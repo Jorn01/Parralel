@@ -1,10 +1,21 @@
-package nl.saxion.paracomp.assignment1;
+package nl.saxion.paracomp.assignment1.sorters;
 
-import java.util.Arrays;
+import nl.saxion.paracomp.assignment1.Utils;
 
-public class SplitBubbleSort2Threads extends BaseSorter {
+public class ThreadPoolBubbleSort extends BaseSorter {
+    private int DrempelWaarde = 1000;
+
+    public ThreadPoolBubbleSort(int DrempelWaarde) {
+        super("treeSplitBubble");
+        this.DrempelWaarde = DrempelWaarde;
+    }
+
     @Override
     public int[] sort(int[] numbers) {
+        if (numbers.length < DrempelWaarde) {
+            Utils.bubbleSort(numbers);
+            return numbers;
+        }
         // Split the array into two halves
         int n = numbers.length;
         int mid = n / 2;
@@ -18,10 +29,10 @@ public class SplitBubbleSort2Threads extends BaseSorter {
 
         // Sort each half
         Thread leftThread = new Thread(() -> {
-            Utils.bubbleSort(left);
+            sort(left);
         });
         Thread rightThread = new Thread(() -> {
-            Utils.bubbleSort(right);
+            sort(right);
         });
 
         leftThread.start();
@@ -33,13 +44,18 @@ public class SplitBubbleSort2Threads extends BaseSorter {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
         // Merge the sorted halves
-        numbers = Utils.merge(left, right);
+        int[] mergedArray = Utils.merge(left, right);
+
+        // Copy mergedArray back into numbers
+        System.arraycopy(mergedArray, 0, numbers, 0, n);
+
         // Check if the array is sorted
         if (!Utils.isSorted(numbers)) {
             System.err.println("The list is not sorted");
         }
+
         return numbers;
     }
-
 }

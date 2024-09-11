@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
-import nl.saxion.paracomp.assignment1.BaseSorter;
 import nl.saxion.paracomp.assignment1.SortAlgorithmFactory;
+import nl.saxion.paracomp.assignment1.sorters.BaseSorter;
 
 public class main {
     public static void main(String[] args) {
@@ -10,10 +10,15 @@ public class main {
 
     private void program() {
         Scanner sc = new Scanner(System.in);
-        System.out.println(
-                "Select the sorting algorithm you want to use: bubble, splitBubble, splitBubble2, treeSplitBubble");
+        System.out.println("Enter the algorithm you want to run: ");
+        System.out.println("""
+                1. bubble
+                2. treeSplitBubble
+                3. RecursiveTask
+                4. ForkJoin
+                5. RecursiveTask""");
         String algorithm = sc.next();
-        BaseSorter sorter = SortAlgorithmFactory.getSortAlgorithm(algorithm);
+        BaseSorter sorter = SortAlgorithmFactory.getSortAlgorithm(algorithm, sc);
         sorter.run();
     }
 }

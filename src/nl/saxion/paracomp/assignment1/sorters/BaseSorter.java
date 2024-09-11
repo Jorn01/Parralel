@@ -1,4 +1,4 @@
-package nl.saxion.paracomp.assignment1;
+package nl.saxion.paracomp.assignment1.sorters;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,10 +11,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import nl.saxion.paracomp.assignment1.Utils;
+import nl.saxion.paracomp.assignment1.runWrapper;
+
 public abstract class BaseSorter implements Runnable {
     protected final HashMap<Integer, ArrayList<Duration>> results = new HashMap<>();
+    private final String fileName;
 
     public abstract int[] sort(int[] numbers);
+
+    public BaseSorter(String fileName) {
+        this.fileName = fileName;
+    }
 
     protected void runAutoMode() {
         results.put(25000, runWrapper.sort(25000, this));
@@ -43,7 +51,7 @@ public abstract class BaseSorter implements Runnable {
             json.set(String.valueOf(key), parsedResults);
         }
 
-        File file = new File("output.json");
+        File file = new File(fileName + ".json");
         try {
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, json);
         } catch (IOException e) {

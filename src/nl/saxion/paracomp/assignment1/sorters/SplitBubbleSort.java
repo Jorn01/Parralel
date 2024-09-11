@@ -1,8 +1,15 @@
-package nl.saxion.paracomp.assignment1;
+package nl.saxion.paracomp.assignment1.sorters;
 
 import java.util.Arrays;
 
+import nl.saxion.paracomp.assignment1.Utils;
+
 public class SplitBubbleSort extends BaseSorter {
+
+    public SplitBubbleSort() {
+        super("splitBubble");
+    }
+
     @Override
     public int[] sort(int[] numbers) {
         // Split the array into two halves

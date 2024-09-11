@@ -5,6 +5,8 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import nl.saxion.paracomp.assignment1.sorters.BaseSorter;
+
 public class runWrapper {
     public static ArrayList<Duration> sort(int length, BaseSorter sorter) {
         ArrayList<Duration> durations = new ArrayList<>();
