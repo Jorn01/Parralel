@@ -9,6 +9,7 @@ public class Main {
     }
 
     private void program() {
+        //TODO append the results to the files instead of overriding it.
         Scanner sc = new Scanner(System.in);
         String algorithm = "";
         while(!algorithm.equalsIgnoreCase("Q") && !algorithm.equalsIgnoreCase("Exit")) {
