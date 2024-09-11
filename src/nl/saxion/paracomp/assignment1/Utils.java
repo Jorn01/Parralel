@@ -106,15 +106,12 @@ public class Utils {
     return Duration.between(start, Instant.now());
   }
 
-  public int getLength() {
-    Scanner sc = new Scanner(System.in);
+  public int getLength(Scanner sc) {
     while (!sc.hasNextInt()) {
       System.out.println("Please enter a valid number: ");
       sc.next();
     }
-    int length = sc.nextInt();
-    sc.close();
-    return length;
+    return sc.nextInt();
   }
 
 }
