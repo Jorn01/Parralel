@@ -13,7 +13,6 @@ public class main {
         System.out.println(
                 "Select the sorting algorithm you want to use: bubble, splitBubble, splitBubble2, treeSplitBubble");
         String algorithm = sc.next();
-        sc.close();
         BaseSorter sorter = SortAlgorithmFactory.getSortAlgorithm(algorithm);
         sorter.run();
     }

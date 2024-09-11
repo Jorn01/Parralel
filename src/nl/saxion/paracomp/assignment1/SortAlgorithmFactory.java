@@ -16,7 +16,14 @@ public class SortAlgorithmFactory {
                 System.out.println("Enter the threshold value");
                 int threshold = sc.nextInt();
                 sc.close();
-                return new TreeSplitBubbleSort(threshold);
+                return new ThreadPoolBubbleSort(threshold);
+            }
+            case "RecursiveTask": {
+                Scanner sc = new Scanner(System.in);
+                System.out.println("Enter the threshold value");
+                int threads = sc.nextInt();
+                sc.close();
+                return new RecursiveTaskTreeSplit(threads);
             }
             default:
                 throw new IllegalArgumentException("Invalid algorithm");

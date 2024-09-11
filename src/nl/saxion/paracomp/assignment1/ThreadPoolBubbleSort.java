@@ -1,9 +1,9 @@
 package nl.saxion.paracomp.assignment1;
 
-public class TreeSplitBubbleSort extends BaseSorter {
+public class ThreadPoolBubbleSort extends BaseSorter {
     private int DrempelWaarde = 1000;
 
-    public TreeSplitBubbleSort(int DrempelWaarde) {
+    public ThreadPoolBubbleSort(int DrempelWaarde) {
         this.DrempelWaarde = DrempelWaarde;
     }
 
@@ -55,5 +55,4 @@ public class TreeSplitBubbleSort extends BaseSorter {
 
         return numbers;
     }
-
 }
