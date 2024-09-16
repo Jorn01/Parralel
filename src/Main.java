@@ -9,10 +9,9 @@ public class Main {
     }
 
     private void program() {
-        //TODO append the results to the files instead of overriding it.
         Scanner sc = new Scanner(System.in);
         String algorithm = "";
-        while(!algorithm.equalsIgnoreCase("Q") && !algorithm.equalsIgnoreCase("Exit")) {
+        while (!algorithm.equalsIgnoreCase("Q") && !algorithm.equalsIgnoreCase("Exit")) {
             System.out.println("Enter the algorithm you want to run: ");
             System.out.println("""
                     1. bubble
@@ -22,13 +21,14 @@ public class Main {
                     5. RecursiveTask
                     Q. Exit the program""");
             algorithm = sc.next();
-            if(algorithm.equalsIgnoreCase("Q") || algorithm.equalsIgnoreCase("Exit")){
+            if (algorithm.equalsIgnoreCase("Q") || algorithm.equalsIgnoreCase("Exit")) {
                 System.out.println("Exiting the program");
                 break;
             }
             BaseSorter sorter = SortAlgorithmFactory.getSortAlgorithm(algorithm, sc);
             sorter.run();
-            System.out.println("Note: Running this multiple times doesnt append the results at this moment in time");
+            System.out.println(
+                    "Note: Running this multiple times doesnt append the results to the file, it overwrites the file");
             try {
                 Thread.sleep(5000);
             } catch (InterruptedException e) {

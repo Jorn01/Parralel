@@ -2,10 +2,10 @@ package nl.saxion.paracomp.assignment1.sorters;
 
 import nl.saxion.paracomp.assignment1.Utils;
 
-public class ThreadPoolBubbleSort extends BaseSorter {
+public class RecursiveBubbleSort extends BaseSorter {
     private int DrempelWaarde = 1000;
 
-    public ThreadPoolBubbleSort(int DrempelWaarde) {
+    public RecursiveBubbleSort(int DrempelWaarde) {
         super("treeSplitBubble");
         this.DrempelWaarde = DrempelWaarde;
     }

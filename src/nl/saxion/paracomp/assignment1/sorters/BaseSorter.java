@@ -23,12 +23,16 @@ public abstract class BaseSorter implements Runnable {
         this.fileName = fileName;
     }
 
-    protected void runAutoMode() {
+    public void runAutoMode() {
         results.put(25000, runWrapper.sort(25000, this,false));
         results.put(50000, runWrapper.sort(50000, this,false));
-        // results.put(100000, runWrapper.sort(100000, this,false));
-        // results.put(200000, runWrapper.sort(200000, this,false));
-        // results.put(400000, runWrapper.sort(400000, this,false));
+         results.put(100000, runWrapper.sort(100000, this,false));
+         results.put(200000, runWrapper.sort(200000, this,false));
+         results.put(400000, runWrapper.sort(400000, this,false));
+    }
+
+    public HashMap<Integer, ArrayList<Duration>> getResults() {
+        return results;
     }
 
     private String formatDuration(Duration duration) {
@@ -39,7 +43,7 @@ public abstract class BaseSorter implements Runnable {
         return String.format("%02d:%02d.%03d", minutes, seconds, millis);
     }
 
-    protected void printResultsToFile(boolean cleanUp) {
+    public void printResultsToFile(boolean cleanUp) {
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectNode json = objectMapper.createObjectNode();
         for (Integer key : results.keySet()) {
