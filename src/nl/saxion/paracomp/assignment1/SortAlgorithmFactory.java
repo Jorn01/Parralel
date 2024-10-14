@@ -1,13 +1,8 @@
 package nl.saxion.paracomp.assignment1;
 
-import java.util.Scanner;
+import nl.saxion.paracomp.assignment1.sorters.*;
 
-import nl.saxion.paracomp.assignment1.sorters.BaseSorter;
-import nl.saxion.paracomp.assignment1.sorters.BubbleSort;
-import nl.saxion.paracomp.assignment1.sorters.RecursiveTaskWrapper;
-import nl.saxion.paracomp.assignment1.sorters.SplitBubbleSort;
-import nl.saxion.paracomp.assignment1.sorters.SplitBubbleSort2Threads;
-import nl.saxion.paracomp.assignment1.sorters.ThreadPoolBubbleSort;
+import java.util.Scanner;
 
 public class SortAlgorithmFactory {
     public static BaseSorter getSortAlgorithm(String algorithm, Scanner sc) {
@@ -21,12 +16,12 @@ public class SortAlgorithmFactory {
             case "treeSplitBubble", "4": {
                 System.out.println("Enter the threshold value");
                 int threshold = sc.nextInt();
-                return new ThreadPoolBubbleSort(threshold);
+                return new RecursiveBubbleSort(threshold);
             }
             case "RecursiveTask", "5": {
                 System.out.println("Enter the threshold value");
-                int threads = sc.nextInt();
-                return new RecursiveTaskWrapper(threads);
+                int threshold = sc.nextInt();
+                return new RecursiveTaskWrapper(threshold);
             }
             default:
                 throw new IllegalArgumentException("Invalid algorithm");
